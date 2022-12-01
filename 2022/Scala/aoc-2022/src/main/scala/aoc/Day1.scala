@@ -27,5 +27,8 @@ def calorieCounting(fpath: String) =
     val max = calories.max
     println(max)
 
-    val top3 = calories.sortWith(_ > _).take(3)
-    println(top3.sum)
+    // get top 3 sum and print
+    val top3 = calories.sortWith(_ > _).take(3).sum
+    println(top3)
+
+    assert(top3 >= max, "Top 3 must be >= than max")
