@@ -32,7 +32,11 @@ def sharedPriority(rucksack: Rucksack): Int =
 
 def sharedElvesPriority(rucksacks: List[Rucksack]): Int =
 
-    rucksacks.map(r => r.items).fold(rucksacks.head.items)((a, b) => a.intersect(b)).map(mapItem)(0)
+    rucksacks
+        .map(r => r.items)
+        .fold(rucksacks.head.items)(
+            (a, b) => a.intersect(b)
+        ).map(mapItem)(0)
 
 @main
 def rucksackCommon(fpath: String) =
